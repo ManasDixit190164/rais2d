@@ -17,7 +17,7 @@ running = False
 async def stophandler(event):
     global running
     running = True
-    to_chat = [-1001564408843,-1001778092647,-1001485810537]
+    to_chat = [-1001564408843,-1001660485611,-1001485810537]
     c = 0
     j=0
     chat = -662339025
