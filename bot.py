@@ -14,10 +14,10 @@ running = False
 
 
 @client.on(events.NewMessage(pattern=r'\.getmsg'))
-async def stophandler(event):
+async def stophsandler(event):
     global running
     running = True
-    to_chat = [-1001564408843,-1001660485611,-1001485810537]
+    to_chat = [-1001564408843,-1001660485611,-1001589760491]
     c = 0
     j=0
     chat = -662339025
@@ -30,8 +30,6 @@ async def stophandler(event):
             for i in to_chat:
                 await client.send_message(i , msg)
             c = c + 1
-            j = j + 1
-            print(j)
             if c == 5:
                 c = 0
                 msg_id = msg_id + 5
@@ -42,7 +40,8 @@ async def stophandler(event):
 async def stophandler(event):
     global running
     running = False
-    print("Stoped F!")
+    await client
+    await client.edit_message(event.message, "STOPPED F!!")
 
 print("Bot has been deployed.")
 client.start()
