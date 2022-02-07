@@ -11,7 +11,7 @@ api_hash = '003d933d631fb5a5abc1053f40480b55'
 client = TelegramClient('session_name', api_id, api_hash)
 
 running = False
-
+#print
 
 @client.on(events.NewMessage(pattern=r'\.getmsg'))
 async def stophsandler(event):
