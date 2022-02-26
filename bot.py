@@ -17,7 +17,7 @@ running = False
 async def stophsandler(event):
     global running
     running = True
-    to_chat = [-1001589471888 ,-1001543401280, -1001717518169]
+    to_chat = [-1001589471888 ,-1001543401280, -1001717518169, -1001656381315]
     c = 0
     j=0
     chat = -662339025
