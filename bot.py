@@ -1,5 +1,4 @@
 import os
-from time import sleep
 from telethon import TelegramClient, events
 
 print("Starting deployment...")
@@ -13,7 +12,6 @@ client = TelegramClient('session_name', api_id, api_hash)
 @client.on(events.NewMessage(incoming=True, chats=from_channel))
 async def _(event):
     for i in to_channel:
-        time.sleep(0.2)
         try:
             await client.send_message(
                 i,
