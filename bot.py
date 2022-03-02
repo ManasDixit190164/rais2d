@@ -6,7 +6,7 @@ print("Starting deployment...")
 
 api_id = 8079920
 api_hash = '003d933d631fb5a5abc1053f40480b55'
-to_channel = [-1001589471888 ,-1001543401280, -1001717518169, -1001656381315]
+to_channel = [-1001500045650 ,-1001543401280, -1001773024200, -1001656381315]
 from_channel = -662339025
 client = TelegramClient('session_name', api_id, api_hash)
 
