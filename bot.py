@@ -47,16 +47,16 @@ async def _(event):
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(incoming=True, chats=j))
-async def _(event):
-    for i in j2:
-        try:
-            await client.send_message(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
+# @client.on(events.NewMessage(incoming=True, chats=j))
+# async def _(event):
+#     for i in j2:
+#         try:
+#             await client.send_message(
+#                 i,
+#                 event.message
+#             )
+#         except Exception as e:
+#             print(e)
 
 
 
