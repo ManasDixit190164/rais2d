@@ -9,6 +9,8 @@ to_channel = [-1001500045650 ,-1001543401280, -1001773024200, -1001656381315]
 from_channel = -662339025
 x=-1001188182423
 y=-1001384606870
+j=-1001628138924
+j2=-1001627971831
 client = TelegramClient('session_name', api_id, api_hash)
 
 @client.on(events.NewMessage(incoming=True, chats=from_channel))
@@ -45,7 +47,16 @@ async def _(event):
         except Exception as e:
             print(e)
 
-
+@client.on(events.NewMessage(incoming=True, chats=j))
+async def _(event):
+    for i in j2:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
 
 
 
