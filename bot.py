@@ -10,7 +10,7 @@ from_channel = -662339025
 x=-1001188182423
 y=-1001384606870
 j=-1001628138924
-j2=-1001627971831
+j2=[-1001627971831]
 client = TelegramClient('session_name', api_id, api_hash)
 
 @client.on(events.NewMessage(incoming=True, chats=from_channel))
