@@ -5,19 +5,20 @@ print("Starting deployment...")
 
 api_id = 8079920
 api_hash = '003d933d631fb5a5abc1053f40480b55'
-to_channel = [-1001500045650 ,-1001713586943, -1001773024200, -1001656381315]
-from_channel = -662339025
-x=-1001188182423
-y=-1001384606870
-j=-1001775308909
-j2=[-1001737470504]
+
+
+s1 = -1001384606870
+s2 = -1001188182423
+s3 = -1001773024200
+s4 = -1001656381315
+des = [-1001500045650]
 client = TelegramClient('session_name', api_id, api_hash)
 
-@client.on(events.NewMessage(incoming=True, chats=from_channel))
+@client.on(events.NewMessage(incoming=True, chats=s1))
 async def _(event):
-    for i in to_channel:
+    for i in des:
         try:
-            await client.send_message(
+            await client.forward_messages(
                 i,
                 event.message
             )
@@ -25,39 +26,38 @@ async def _(event):
             print(e)
             
             
-@client.on(events.NewMessage(incoming=True, chats=x))
+@client.on(events.NewMessage(incoming=True, chats=s2))
 async def _(event):
-    for i in to_channel:
+    for i in des:
         try:
-            await client.send_message(
+            await client.forward_messages(
                 i,
                 event.message
             )
         except Exception as e:
             print(e)
             
-@client.on(events.NewMessage(incoming=True, chats=y))
+@client.on(events.NewMessage(incoming=True, chats=s3))
 async def _(event):
-    for i in to_channel:
+    for i in des:
         try:
-            await client.send_message(
+            await client.forward_messages(
                 i,
                 event.message
             )
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(incoming=True, chats=j))
+@client.on(events.NewMessage(incoming=True, chats=s4))
 async def _(event):
-    for i in j2:
+    for i in des:
         try:
-            await client.send_message(
+            await client.forward_messages(
                 i,
                 event.message
             )
         except Exception as e:
             print(e)
-
 
 
 print("Bot has been deployed.")
