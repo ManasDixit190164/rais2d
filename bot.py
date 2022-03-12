@@ -6,13 +6,25 @@ print("Starting deployment...")
 api_id = 8079920
 api_hash = '003d933d631fb5a5abc1053f40480b55'
 
-
+shivaS= -1001775308909
+serD = -1001737470504
 s1 = -1001384606870
 s2 = -1001188182423
 s3 = -1001773024200
 s4 = -1001656381315
 des = [-1001500045650]
 client = TelegramClient('session_name', api_id, api_hash)
+
+@client.on(events.NewMessage(incoming=True, chats=shivaS))
+async def _(event):
+    for i in serD:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
 
 @client.on(events.NewMessage(incoming=True, chats=s1))
 async def _(event):
