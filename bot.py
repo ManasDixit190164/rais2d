@@ -11,7 +11,7 @@ serD = [-1001737470504]
 s1 = -1001384606870
 s2 = -1001188182423
 s3 = -1001773024200
-s4 = -1001656381315
+# s4 = -1001656381315
 des = [-1001500045650]
 client = TelegramClient('session_name', api_id, api_hash)
 
@@ -60,16 +60,16 @@ async def _(event):
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(incoming=True, chats=s4))
-async def _(event):
-    for i in des:
-        try:
-            await client.forward_messages(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
+# @client.on(events.NewMessage(incoming=True, chats=s4))
+# async def _(event):
+#     for i in des:
+#         try:
+#             await client.forward_messages(
+#                 i,
+#                 event.message
+#             )
+#         except Exception as e:
+#             print(e)
 
 
 print("Bot has been deployed.")
