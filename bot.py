@@ -15,7 +15,7 @@ s3 = -1001773024200
 des = [-1001500045650]
 
 
-v1_s = [-1001737470504]
+v1_s = -1001737470504
 v1_d = [-1001701508412]
 client = TelegramClient('session_name', api_id, api_hash)
 
