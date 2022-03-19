@@ -30,7 +30,7 @@ async def _(event):
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(chats=s1))
+@client.on(events.NewMessage(incoming=True, chats=s1))
 async def _(event):
     for i in des:
         try:
@@ -65,7 +65,7 @@ async def _(event):
             print(e)
             
             
-@client.on(events.NewMessage(incoming=True, chats=v1_s))
+@client.on(events.NewMessage(chats=v1_s))
 async def _(event):
     for i in v1_d:
         try:
