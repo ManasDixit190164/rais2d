@@ -15,8 +15,30 @@ s3 = -1001773024200
 des = [-1001500045650]
 
 
-v1_s = -1001737470504
+v1_s = -1001166732740
 v1_d = [-1001701508412]
+
+v2_s = -1001318942027
+v2_d = [-1001632606017]
+
+v3_s = -1001572749134
+v3_d = [-1001663607450]
+
+v4_s = -1001213730666
+v4_d = [-1001247725526]
+
+v5_s = -1001237325544
+v5_d = [-1001661268099]
+
+v6_s = -1001471085094
+v6_d = [-1001576059626]
+
+v7_s = -1001499366132
+v7_d = [-1001674225031]
+
+v8_s = -1001264973891
+v8_d = [-1001602245687]
+
 client = TelegramClient('session_name', api_id, api_hash)
 
 @client.on(events.NewMessage(incoming=True, chats=shivaS))
@@ -64,7 +86,11 @@ async def _(event):
         except Exception as e:
             print(e)
             
-            
+#########################################################################################################################################
+
+#########################################################################################################################################
+
+
 @client.on(events.NewMessage(chats=v1_s))
 async def _(event):
     for i in v1_d:
@@ -76,16 +102,86 @@ async def _(event):
         except Exception as e:
             print(e)
 
-# @client.on(events.NewMessage(incoming=True, chats=s4))
-# async def _(event):
-#     for i in des:
-#         try:
-#             await client.forward_messages(
-#                 i,
-#                 event.message
-#             )
-#         except Exception as e:
-#             print(e)
+@client.on(events.NewMessage(chats=v2_s))
+async def _(event):
+    for i in v2_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+            
+            
+@client.on(events.NewMessage(chats=v3_s))
+async def _(event):
+    for i in v3_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+
+@client.on(events.NewMessage(chats=v4_s))
+async def _(event):
+    for i in v4_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+
+@client.on(events.NewMessage(chats=v5_s))
+async def _(event):
+    for i in v5_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+            
+            
+@client.on(events.NewMessage(chats=v6_s))
+async def _(event):
+    for i in v6_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+            
+@client.on(events.NewMessage(chats=v7_s))
+async def _(event):
+    for i in v7_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+
+@client.on(events.NewMessage(chats=v8_s))
+async def _(event):
+    for i in v8_d:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
+            
+            
 
 
 print("Bot has been deployed.")
