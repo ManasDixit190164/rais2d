@@ -41,7 +41,6 @@ v8_d = [-1001602245687]
 
 ip_s1 = -1001376505879
 ip_s2 = -1001200363662
-ip_s3 = -1001476793971
 ip_d = [-1001723920884]
 
 client = TelegramClient('session_name', api_id, api_hash)
@@ -212,16 +211,7 @@ async def _(event):
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(chats=ip_s3))
-async def _(event):
-    for i in ip_d:
-        try:
-            await client.send_message(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
+
 
 print("Bot has been deployed.")
 client.start()
