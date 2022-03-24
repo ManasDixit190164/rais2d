@@ -189,6 +189,7 @@ async def _(event):
             
 @client.on(events.NewMessage(incoming=True, chats=ip_s1))
 async def _(event):
+    txt  = " 〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
     try:
         if event.photo:
             photo = event.media.photo
@@ -216,6 +217,7 @@ async def _(event):
             
 @client.on(events.NewMessage(incoming=True, chats=ip_s2))
 async def _(event):
+    txt  = " 〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
     try:
         if event.photo:
             photo = event.media.photo
