@@ -187,26 +187,24 @@ async def _(event):
             
 ##################################################  I P O  ########################################################
             
-@client.on(events.NewMessage(chats=ip_s1))
+@client.on(events.NewMessage(incoming=True, chats=ip_s1))
 async def _(event):
-    for i in ip_d:
         try:
+            text_to_forward = f"** {event.raw_text}\n{txt} **"
             await client.send_message(
-                i,
-                event.message
+                ip_d, text_to_forward ,parse_mode='md'  ,link_preview=False
             )
         except Exception as e:
             print(e)
             
             
             
-@client.on(events.NewMessage(chats=ip_s2))
+@client.on(events.NewMessage(incoming=True, chats=ip_s2))
 async def _(event):
-    for i in ip_d:
         try:
+            text_to_forward = f"** {event.raw_text}\n{txt} **"
             await client.send_message(
-                i,
-                event.message
+                ip_d, text_to_forward ,parse_mode='md'  ,link_preview=False
             )
         except Exception as e:
             print(e)
