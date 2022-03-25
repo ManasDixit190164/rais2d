@@ -190,7 +190,7 @@ async def _(event):
             
 @client.on(events.NewMessage(incoming=True, chats=ip_s1))
 async def _(event):
-    txt  = " 〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
+    txt  = "\n〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
     try:
         if event.photo:
             photo = event.media.photo
@@ -218,7 +218,7 @@ async def _(event):
             
 @client.on(events.NewMessage(incoming=True, chats=ip_s2))
 async def _(event):
-    txt  = " 〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
+    txt  = "\n〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
     try:
         if event.photo:
             photo = event.media.photo
@@ -242,32 +242,6 @@ async def _(event):
     except Exception as e:
         print(e)
 
-
-@client.on(events.NewMessage(incoming=True, chats=ip_s3))
-async def _(event):
-    txt  = " 〰️〰️❤️‍🔥@IPO_STOCK_MARKET_GMP "
-    try:
-        if event.photo:
-            photo = event.media.photo
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_file(ip_d, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
-          
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
-                    await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(ip_d, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
-                return
-        else:
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
-    except Exception as e:
-        print(e)
 
 
 
