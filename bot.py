@@ -44,6 +44,9 @@ ip_s2 = -1001200363662
 ip_s3 = -1001737470504
 ip_d = -1001723920884
 
+iplS = -1001716769309
+iplT = -1001511223693
+
 client = TelegramClient('session_name', api_id, api_hash)
 
 @client.on(events.NewMessage(incoming=True, chats=shivaS))
@@ -239,6 +242,34 @@ async def _(event):
         else:
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
+    except Exception as e:
+        print(e)
+
+#########################  IPL ########################
+
+@client.on(events.NewMessage(incoming=True, chats=iplS))
+async def _(event):
+    txt  = "\n🌀 Join :- @watchipllivee "
+    try:
+        if event.photo:
+            photo = event.media.photo
+            text_to_forward = "**"+event.text+"\n"+txt+"**"
+            await client.send_file(iplT, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
+          
+        elif event.media:
+            try:
+                if event.media.webpage:
+                    text_to_forward = "**"+event.text+"\n"+txt+"**"
+                    await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
+                    return
+            except:
+                media = event.media.document
+                text_to_forward = "**"+event.text+"\n"+txt+"**"
+                await client.send_file(iplT, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
+                return
+        else:
+            text_to_forward = "**"+event.text+"\n"+txt+"**"
+            await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
     except Exception as e:
         print(e)
 
