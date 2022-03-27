@@ -250,7 +250,7 @@ async def _(event):
 
 @client.on(events.NewMessage(incoming=True, chats=iplS1))
 async def _(event):
-    txt  = "\n🌀 Join :- @watchipllivee "
+    txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
     try:
         if event.photo:
             photo = event.media.photo
@@ -276,7 +276,7 @@ async def _(event):
 
 @client.on(events.NewMessage(incoming=True, chats=iplS2))
 async def _(event):
-    txt  = "\n🌀 Join :- @watchipllivee "
+    txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
     try:
         if event.photo:
             photo = event.media.photo
