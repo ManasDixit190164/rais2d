@@ -8,12 +8,6 @@ api_hash = '003d933d631fb5a5abc1053f40480b55'
 
 shivaS= -1001775308909
 serD = [-1001737470504]
-s1 = -1001384606870
-s2 = -1001188182423
-s3 = -1001773024200
-# s4 = -1001656381315
-des = [-1001500045650]
-
 
 v1_s = -1001166732740
 v1_d = [-1001701508412]
@@ -39,17 +33,19 @@ v7_d = [-1001674225031]
 v8_s = -1001264973891
 v8_d = [-1001602245687]
 
-ip_s1 = -1001376505879
-ip_s2 = -1001200363662
-ip_s3 = -1001737470504
+ip_s1 = [-1001376505879,-1001200363662,-1001737470504]
 ip_d = -1001723920884
 
-iplS1 = -1001716769309
-iplS2 = -1001659715448
+ipl = [-1001716769309,-1001659715448]
 iplT = -1001511223693
 
 client = TelegramClient('session_name', api_id, api_hash)
 
+
+
+
+
+######################## TV Shows #################################
 @client.on(events.NewMessage(incoming=True, chats=shivaS))
 async def _(event):
     for i in serD:
@@ -61,39 +57,6 @@ async def _(event):
         except Exception as e:
             print(e)
 
-@client.on(events.NewMessage(incoming=True, chats=s1))
-async def _(event):
-    for i in des:
-        try:
-            await client.forward_messages(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
-            
-            
-@client.on(events.NewMessage(incoming=True, chats=s2))
-async def _(event):
-    for i in des:
-        try:
-            await client.forward_messages(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
-            
-@client.on(events.NewMessage(incoming=True, chats=s3))
-async def _(event):
-    for i in des:
-        try:
-            await client.forward_messages(
-                i,
-                event.message
-            )
-        except Exception as e:
-            print(e)
             
 #########################################################################################################################################
 
@@ -220,35 +183,11 @@ async def _(event):
             
             
             
-@client.on(events.NewMessage(incoming=True, chats=ip_s2))
-async def _(event):
-    txt  = "\n〰️〰️❤️‍🔥@IPO_INDIAN_STOCK_MARKET_GMP_NEWS "
-    try:
-        if event.photo:
-            photo = event.media.photo
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_file(ip_d, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
-          
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
-                    await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(ip_d, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
-                return
-        else:
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
-    except Exception as e:
-        print(e)
+
 
 #########################  IPL ########################
 
-@client.on(events.NewMessage(incoming=True, chats=iplS1))
+@client.on(events.NewMessage(incoming=True, chats=ipl))
 async def _(event):
     txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
     try:
@@ -274,31 +213,7 @@ async def _(event):
     except Exception as e:
         print(e)
 
-@client.on(events.NewMessage(incoming=True, chats=iplS2))
-async def _(event):
-    txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
-    try:
-        if event.photo:
-            photo = event.media.photo
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_file(iplT, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
-          
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
-                    await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(iplT, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
-                return
-        else:
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
-    except Exception as e:
-        print(e)
+
 
 
 print("Bot has been deployed.")
