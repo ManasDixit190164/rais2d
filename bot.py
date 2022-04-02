@@ -1,5 +1,8 @@
 import os
 from telethon import TelegramClient, events
+from telethon.tl.functions.messages import GetAllStickersRequest
+from telethon.tl.functions.messages import GetStickerSetRequest
+from telethon.tl.types import InputStickerSetID
 
 print("Starting deployment...")
 
@@ -157,6 +160,13 @@ async def _(event):
             
 @client.on(events.NewMessage(incoming=True, chats=ip_s1))
 async def _(event):
+    sticker_sets = await client(GetAllStickersRequest(0))
+    sticker_set = sticker_sets.sets[0]
+    stickers = await client(GetStickerSetRequest(
+    stickerset=InputStickerSetID(
+        id=sticker_set.id, access_hash=sticker_set.access_hash
+    )
+))
     txt  = "\n〰️〰️❤️‍🔥@IPO_INDIAN_STOCK_MARKET_GMP_NEWS "
     try:
         if event.photo:
@@ -178,6 +188,7 @@ async def _(event):
         else:
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
+        await client.send_file(ip_d, stickers.documents[0])
     except Exception as e:
         print(e)
             
