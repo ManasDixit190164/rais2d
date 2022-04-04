@@ -1,4 +1,5 @@
 import os
+import re
 import time
 from telethon import TelegramClient, events
 from telethon.tl.functions.messages import GetAllStickersRequest
