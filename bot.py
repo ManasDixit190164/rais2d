@@ -1,4 +1,5 @@
 import os
+import time
 from telethon import TelegramClient, events
 from telethon.tl.functions.messages import GetAllStickersRequest
 from telethon.tl.functions.messages import GetStickerSetRequest
@@ -189,6 +190,7 @@ async def _(event):
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(ip_d, text_to_forward, parse_mode = "md", link_preview=False)
         await client.send_file(ip_d, stickers.documents[0])
+        time.sleep(1)
     except Exception as e:
         print(e)
             
