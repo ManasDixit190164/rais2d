@@ -40,7 +40,7 @@ v8_d = [-1001602245687]
 ip_s1 = [-1001376505879,-1001200363662]
 ip_d = -1001723920884
 
-ipl = [-1001659715448]
+ipl = [-1001762055760,-1001659715448,-1001775661818]
 iplT = -1001511223693
 
 client = TelegramClient('session_name', api_id, api_hash)
@@ -203,25 +203,29 @@ async def _(event):
 @client.on(events.NewMessage(incoming=True, chats=ipl))
 async def _(event):
     txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
+    caption = event.message.message
+    caption = re.sub("@notao" , "" , caption)
+    caption = re.sub("🎗️@Netflix_Villa🎗️" , "" , caption)
+    
     try:
         if event.photo:
             photo = event.media.photo
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
-            await client.send_file(iplT, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
+            text_to_forward = "**"+caption+"\n"+txt+"**"
+            await client.send_file(iplT, photo,text_to_forward, parse_mode = "md", link_preview=False)
           
         elif event.media:
             try:
                 if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
+                    text_to_forward = "**"+caption+"\n"+txt+"**"
                     await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
                     return
             except:
                 media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(iplT, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
+                text_to_forward = "**"+caption+"\n"+txt+"**"
+                await client.send_file(iplT, media,text_to_forward, parse_mode = "md", link_preview=False)
                 return
         else:
-            text_to_forward = "**"+event.text+"\n"+txt+"**"
+            text_to_forward = "**"+caption+"\n"+txt+"**"
             await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
     except Exception as e:
         print(e)
