@@ -160,7 +160,7 @@ async def _(event):
             
 ##################################################  I P O  ########################################################
             
-@client.on(events.NewMessage(incoming=True, chats=ip_s1))
+@client.on(events.NewMessage(chats=ip_s1))
 async def _(event):
     sticker_sets = await client(GetAllStickersRequest(0))
     sticker_set = sticker_sets.sets[0]
@@ -201,7 +201,7 @@ async def _(event):
 
 #########################  IPL ########################
 
-@client.on(events.NewMessage(incoming=True, chats=ipl))
+@client.on(events.NewMessage(chats=ipl))
 async def _(event):
     txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
     caption = event.message.message
