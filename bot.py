@@ -199,38 +199,6 @@ async def _(event):
             
 
 
-#########################  IPL ########################
-
-@client.on(events.NewMessage(chats=ipl))
-async def _(event):
-    txt  = "\n🌀 Join :- @watchipllivee \nIf You are facing any issue message 👉 @CinexMovieBot"
-    caption = event.message.message
-    caption = re.sub("@notao" , "" , caption)
-    caption = re.sub("🎗️@Netflix_Villa🎗️" , "" , caption)
-    
-    try:
-        if event.photo:
-            photo = event.media.photo
-            text_to_forward = "**"+caption+"\n"+txt+"**"
-            await client.send_file(iplT, photo,text_to_forward, parse_mode = "md", link_preview=False)
-          
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+caption+"\n"+txt+"**"
-                    await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+caption+"\n"+txt+"**"
-                await client.send_file(iplT, media,text_to_forward, parse_mode = "md", link_preview=False)
-                return
-        else:
-            text_to_forward = "**"+caption+"\n"+txt+"**"
-            await client.send_message(iplT, text_to_forward, parse_mode = "md", link_preview=False)
-    except Exception as e:
-        print(e)
-
 
 
 
