@@ -77,7 +77,7 @@ async def _(event):
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(jobD, text_to_forward, parse_mode = "md", link_preview=False)
     except Exception as e:
-        print(e))
+        print(e)
 
 
 
