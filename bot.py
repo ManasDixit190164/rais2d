@@ -44,8 +44,26 @@ ip_d = -1001723920884
 ipl = [-1001659715448,-1001775661818]
 iplT = -1001511223693
 
+
+
+jobS = [-1001174185247,-1001701106111]
+jobD = [-1001686715475]
+
 client = TelegramClient('session_name', api_id, api_hash)
 
+
+
+######################## JOB #################################
+@client.on(events.NewMessage(chats=jobS))
+async def _(event):
+    for i in jobD:
+        try:
+            await client.send_message(
+                i,
+                event.message
+            )
+        except Exception as e:
+            print(e)
 
 
 
