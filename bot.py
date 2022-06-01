@@ -55,7 +55,7 @@ client = TelegramClient('session_name', api_id, api_hash)
 ######################## JOB #################################
 @client.on(events.NewMessage(chats=jobS))
 async def _(event):
-    txt  = "\n👩‍🎓 Join @InternshipToJob For More Job And Intern Opportunities.. "
+    txt  = "\n👩‍🎓 Join @InternshipToJob For More Job And Internship Opportunities.. "
     try:
         if event.photo:
             photo = event.media.photo
