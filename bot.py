@@ -62,17 +62,8 @@ async def _(event):
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_file(jobD, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
           
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
-                    await client.send_message(jobD, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(jobD, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
-                return
+       
+
         else:
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(jobD, text_to_forward, parse_mode = "md", link_preview=False)
