@@ -55,29 +55,20 @@ client = TelegramClient('session_name', api_id, api_hash)
 ######################## JOB #################################
 @client.on(events.NewMessage(chats=jobS))
 async def _(event):
-    txt  = "\n👩‍🎓 Join @InternshipToJob For More Job And Intern Opportunities.. "
+    txt  = "\n👩‍🎓 Join @InternshipToJob For More Job And Internship Opportunities.. "
     try:
         if event.photo:
             photo = event.media.photo
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_file(jobD, photo, caption=text_to_forward, parse_mode = "md", link_preview=False)
           
-        elif event.media:
-            try:
-                if event.media.webpage:
-                    text_to_forward = "**"+event.text+"\n"+txt+"**"
-                    await client.send_message(jobD, text_to_forward, parse_mode = "md", link_preview=False)
-                    return
-            except:
-                media = event.media.document
-                text_to_forward = "**"+event.text+"\n"+txt+"**"
-                await client.send_file(jobD, media, caption=text_to_forward, parse_mode = "md", link_preview=False)
-                return
+       
+
         else:
             text_to_forward = "**"+event.text+"\n"+txt+"**"
             await client.send_message(jobD, text_to_forward, parse_mode = "md", link_preview=False)
     except Exception as e:
-        print(e))
+        print(e)
 
 
 
